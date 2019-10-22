@@ -1,33 +1,40 @@
 import React, {Component} from 'react'
 import uuid from 'uuid'
 import './App.css';
-
+import ItemList from './components/ItemList'
+import ItemAdd from './components/ItemAdd'
 class App extends Component {
   
   state = {
     content: '',
     todos: [
-      
+      // {
+      //   id: uuid.v4(),
+      //   content: 'Sample',
+      //   status:false
+      // }
     ]
   }
 
-  onSubmit = (e) => {
-    e.preventDefault()
-    if (this.state.content !== '') {
-      this.state.todos.push({
-        id: uuid.v4(),
-        content: this.state.content,
-        status: false
-      })
+  
+  ItemAdd = (content) => {
+    const newTodo = {
+      id: uuid.v4(),
+      content: content,
+      status: false
     }
-    console.log(this.state.todos)
+    this.setState({todos: [...this.state.todos, newTodo]})
   }
-
-  onChange = (e) => {
-    this.setState({content: e.target.value})
-    console.log(this.state.content)
+  
+  statusChange = (id) => {
+    this.setState({todos: this.state.todos.map(todo => {
+      if(todo.id === id){
+        todo.status = !todo.status
+      }
+      return todo;
+    })})
+    console.log(this.state.todos);
   }
-
 
   render() {
 
@@ -41,26 +48,16 @@ class App extends Component {
       textAlign: 'center'
     }
 
-    const inputStyle = {
-      width:'100%',
-      height: '50px',
-      fontSize: '30px',
-      textAlign: 'center'
-    }
-
-    const btnStyle = {
-      width:'100%',
-      height: '50px',
-    }
+    
 
     return (
       <div style = {wrapperStyle}>
         <h1 style = {headerStyle}>TODO TW</h1>
         
-        <form onSubmit = {this.onSubmit}>
-          <input onChange = {this.onChange} style = {inputStyle} type = "text"></input>
-          <button style = {btnStyle} type = "submit">ADD TODO</button>
-        </form>
+        <ItemAdd ItemAdd = {this.ItemAdd} />
+
+        <ItemList statusChange = {this.statusChange}  
+                  todos = {this.state.todos} />
         
       </div>
     );
