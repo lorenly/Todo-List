@@ -2,28 +2,23 @@ import React, { Component } from 'react'
 
 export class ItemList extends Component {
     render() {
-        const checkboxStyle = {
-            marginLeft: '3%',
-            float: 'left',
-            transform: 'scale(3)'
-        }
-
         const contentStyle = {
-            
-            fontSize: '50px',
+            marginRight: '20%',
+            fontSize: '30px',
             
         }
 
         const contentStyle2 = {
-            fontSize: '50px',
+            marginRight: '20%',
+            fontSize: '30px',
             textDecoration: 'line-through'
         }
 
 
         return this.props.todos.map((todo) => (
             <div key = {todo.id}>
-                <input onChange = {this.props.statusChange.bind(this, todo.id)} style = {checkboxStyle} type = "checkbox" />
-                {todo.status ? <h1 style = {contentStyle2}>{todo.content}</h1> : <h1 style = {contentStyle}>{todo.content}</h1>}
+                <input class="checkBox" onChange = {this.props.statusChange.bind(this, todo.id)} type = "checkbox" />
+                {todo.status ? <span style = {contentStyle2}>{todo.content}</span> : <span style = {contentStyle}>{todo.content}</span>}
             </div>
         ))
     }

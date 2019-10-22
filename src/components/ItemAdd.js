@@ -12,26 +12,22 @@ export class ItemAdd extends Component {
         e.preventDefault()
         if (this.state.content !== '') {
             this.props.ItemAdd(this.state.content)
+            this.state.content = ''
         }
     }
 
     render() {
-        const inputStyle = {
-            width:'100%',
-            height: '50px',
-            fontSize: '30px',
-            textAlign: 'center'
-          }
-      
           const btnStyle = {
-            width:'100%',
-            height: '50px',
+            width:'20%',
+            height: '30px',
           }
         return (
             <div>
                 <form onSubmit = {this.onSubmit}>
-                    <input onChange = {this.onChange} style = {inputStyle} type = "text"></input>
-                    <button style = {btnStyle} type = "submit">ADD TODO</button>
+                    <div>
+                    <input class="items" onChange = {this.onChange} type="text"  value={this.state.content}></input>
+                    </div>
+                    <button class="btnAddItems" type = "submit">ADD TODO</button>
                 </form>
             </div>
         )

@@ -7,13 +7,7 @@ class App extends Component {
   
   state = {
     content: '',
-    todos: [
-      // {
-      //   id: uuid.v4(),
-      //   content: 'Sample',
-      //   status:false
-      // }
-    ]
+    todos: []
   }
 
   
@@ -36,23 +30,11 @@ class App extends Component {
     console.log(this.state.todos);
   }
 
-  render() {
-
-    const headerStyle = {
-      fontSize: '80px',
-    }
-
-    const wrapperStyle = {
-      backgroundColor: '#000',
-      color: 'white',
-      textAlign: 'center'
-    }
-
-    
+  render() {    
 
     return (
-      <div style = {wrapperStyle}>
-        <h1 style = {headerStyle}>TODO TW</h1>
+      <div class="todos">
+        <h1 class="todoTW">TODO LIST</h1>
         
         <ItemAdd ItemAdd = {this.ItemAdd} />
 

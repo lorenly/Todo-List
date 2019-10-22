@@ -2,7 +2,36 @@
    v2.0-modified | 20110126
    License: none (public domain)
 */
+.todos{
+    background-color: #AF33FF;
+    color: white;
+    text-align: center;
+}
 
+.todoTW{
+    font-size: 80px;
+}
+
+.checkBox{
+    margin-top: 20%;
+    margin-left:20%;
+    float: left;
+    transform: scale(2);
+    margin-top: 1%;
+}
+
+.items{
+    width:30%;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+}
+
+
+.btnAddItems{
+    width:20%;
+    height: 30px;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
